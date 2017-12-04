@@ -33,5 +33,5 @@ class JungleBeat
     @count += 1
     beat
   end
-  binding.pry
+  
 end

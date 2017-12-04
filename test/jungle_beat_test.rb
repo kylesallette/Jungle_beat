@@ -56,5 +56,4 @@ class JungleBeatTest < Minitest::Test
     assert_equal "doop", list.head.beat
   end
 
-
 end
