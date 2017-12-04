@@ -25,5 +25,13 @@ class JungleBeat
       @count += 1
       beat
   end
-  
+
+  def prepend(beat)
+    position = @head
+    @head = Node.new(beat)
+    @head.next_node = position
+    @count += 1
+    beat
+  end
+  binding.pry
 end
