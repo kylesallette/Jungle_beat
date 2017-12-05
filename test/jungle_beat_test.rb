@@ -1,146 +1,77 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require_relative "../lib/jungle_beat"
-require_relative "../lib/node"
+require 'pry'
+
 
 
 class JungleBeatTest < Minitest::Test
 
-  def test_head_is_nil_by_default
-    list = JungleBeat.new
+  def test_append
+    jb = JungleBeat.new
 
-    assert_nil list.head
+    assert_equal "moop", jb.append("moop")
+    assert_equal "toot", jb.append("toot")
+    assert_equal "doop", jb.append("doop")
   end
 
-  def test_can_append_a_beat
-    list = JungleBeat.new
+  def test_prepend
+    jb = JungleBeat.new
 
-    list.append("doop")
+    jb.append("John")
 
-    assert_instance_of Node, list.head
-    assert_equal "doop", list.head.beat
-  end
-
-  def test_count_starts_at_0
-    list = JungleBeat.new
-
-    assert_equal 0 ,list.count
-  end
-
-  def test_counts_after_appending
-    list = JungleBeat.new
-
-    list.append("doop")
-    list.append("zing")
-    list.append("bop")
-
-    assert_equal 3, list.count
-  end
-
-  def test_can_append_five_beats
-    list = JungleBeat.new
-
-    list.append("plop")
-    list.append("suu")
-    list.append("dop")
-    list.append("doop")
-    list.append("moop")
-
-    assert_instance_of Node, list.head
-    assert_equal "plop", list.head.beat
-
-    assert_instance_of Node, list.head
-    assert_equal "suu", list.head.next_node.beat
-
-    assert_instance_of Node, list.head
-    assert_equal "dop", list.head.next_node.next_node.beat
-
-    assert_instance_of Node, list.head
-    assert_equal "doop", list.head.next_node.next_node.next_node.beat
-
-    assert_instance_of Node, list.head
-    assert_equal "moop", list.head.next_node.next_node.next_node.next_node.beat
-  end
-
-  def test_can_prepend_beat
-    list = JungleBeat.new
-
-    list.prepend("doop")
-
-    assert_instance_of Node, list.head
-    assert_equal "doop", list.head.beat
-  end
-
-  def test_can_append_and_prepend
-    list = JungleBeat.new
-
-    list.append("moop")
-    list.prepend("boop")
-
-    assert_instance_of Node, list.head
-    assert_equal "boop", list.head.beat
-    assert_equal "moop", list.head.next_node.beat
+    assert_equal "ding", jb.prepend("ding")
+    assert_equal "zing", jb.prepend("zing")
+    assert_equal "zap", jb.prepend("zap")
   end
 
   def test_insert
-    list = JungleBeat.new
+    jb = JungleBeat.new
 
-    list.append("boop")
-    list.append("moop")
-    list.insert(1, "ding")
+    expected = "zing ding zap"
 
-    assert_instance_of Node, list.head
-    assert_equal "boop", list.head.beat
-    assert_equal "ding", list.head.next_node.beat
-    assert_equal "moop", list.head.next_node.next_node.beat
+    jb.append("zing")
+    jb.append("zap")
+    jb.insert(1,"ding")
+
+    assert_equal expected, jb.to_string
   end
 
-  def test_find
-    list = JungleBeat.new
+  def test_to_string
+    jb = JungleBeat.new
 
-    list.append("moop")
-    list.append("doop")
-    list.append("deep")
+    expected = "zing zip ding"
 
-    assert_equal "moop", list.find(0,0)
-    assert_equal "deep", list.find(2,0)
-  end
+    assert_equal "zing", jb.append("zing")
+    assert_equal "zip", jb.append("zip")
+    assert_equal "ding", jb.append("ding")
 
-  def test_find_with_following_beats
-    list = JungleBeat.new
-
-    list.append("moop")
-    list.append("doop")
-    list.append("ding")
-
-    assert_equal "moop", list.find(0,1)
-    assert_equal "doop ding", list.find(1,2)
-  end
-
-  def test_pop_beat
-    list = JungleBeat.new
-
-    list.append("moop")
-    list.append("doop")
-    list.append("ding")
-
-    assert_equal 3, list.count
-    assert_equal "The *ding* beat has been removed!", list.pop
-    assert_equal 2, list.count
+    assert_equal expected, jb.to_string
   end
 
   def test_includes?
-    list = JungleBeat.new
+    jb = JungleBeat.new
 
-    list.append("ding")
-    list.append("ping")
-    list.append("moop")
 
-    assert_equal true, list.includes?("ding")
-    assert_equal false, list.includes?("zip")
-    assert_equal true, list.includes?("ping")
-    assert_equal false, list.includes?("super")
+    jb.append("zip")
+    jb.append("zap")
+    jb.append("ding")
+
+    assert_equal true, jb.includes?("zip")
+    assert_equal true, jb.includes?("zap")
+    assert_equal false, jb.includes?("dong")
+    assert_equal true, jb.includes?("ding")
+  end
+
+  def test_pop
+    jb = JungleBeat.new
+
+    jb.append("zip")
+    jb.append("zap")
+    jb.append("dang")
+
+    assert_equal "The *dang* beat has been removed!", jb.pop
+    assert_equal 2, jb.count
   end
 
 end
