@@ -1,4 +1,4 @@
-![alt text](http://africanbeat.com.au/images/Kids/Kids_1.jpg)
+![alt text](http://sunriseproductions.tv/img/logo_junglebeat_trans.png)
 
 
 
