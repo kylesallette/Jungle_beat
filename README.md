@@ -1,4 +1,4 @@
-![alt text](http://sunriseproductions.tv/img/logo_junglebeat_trans.png)
+![alt text](https://pbs.twimg.com/profile_images/845899704122552320/9uSrb5LV.jpg)
 
 
 
