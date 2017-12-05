@@ -1,3 +1,8 @@
+![alt text](http://africanbeat.com.au/images/Kids/Kids_1.jpg)
+
+
+
+
 # Jungle Beat
 
 In this project I'm going to do some silly things with sound. Specifically, I'm going to make a very basic drum machine program.
