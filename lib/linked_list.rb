@@ -39,7 +39,7 @@ class LinkedList
     beats = "#{position.beat}"
       until position.next_node.nil?
          beats << " #{position.next_node.beat}"
-          position = position.next_node
+         position = position.next_node
       end
     beats
   end
@@ -49,11 +49,11 @@ class LinkedList
     (index - 1).times do
       position = position.next_node
     end
-    node = Node.new(beat)
-    node.next_node = position.next_node
-    position.next_node = node
+      node = Node.new(beat)
+      node.next_node = position.next_node
+      position.next_node = node
       @count += 1
-    beat
+      beat
   end
 
   def find(index, how_many)
@@ -82,9 +82,9 @@ class LinkedList
         until position.next_node == nil
           position.next_node
           position = position.next_node
-          if position.beat == input
-            return true
-          end
+            if position.beat == input
+              return true
+            end
         end
     return false
   end
@@ -100,10 +100,10 @@ class LinkedList
             position.beat = nil
             break
           end
-          if position.next_node.next_node.nil?
-            beats  = position.next_node.beat
-            position.next_node = nil
-          end
+            if position.next_node.next_node.nil?
+              beats  = position.next_node.beat
+              position.next_node = nil
+            end
       end
      @count -= 1
      "The *#{beats}* beat has been removed!"

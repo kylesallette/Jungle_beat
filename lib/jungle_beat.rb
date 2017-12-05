@@ -7,6 +7,11 @@ class JungleBeat
     @list = LinkedList.new
   end
 
+  def play
+     beats = @list.to_string
+    `say -r 500 -v Boing #{beats}`
+  end
+
   def head
     @head
   end
@@ -46,5 +51,5 @@ class JungleBeat
   def includes?(beat)
     @list.includes?(beat)
   end
-
+binding.pry
 end
