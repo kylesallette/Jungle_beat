@@ -52,7 +52,7 @@ class JungleBeat
     node = Node.new(beat)
     node.next_node = position.next_node
     position.next_node = node
-    @count += 1
+      @count += 1
     beat
   end
 
@@ -95,6 +95,11 @@ class JungleBeat
       until position.next_node.nil?
         position.next_node
         position = position.next_node
+          if position.next_node.nil?
+            beats = position.beat
+            position.beat = nil
+            break
+          end
           if position.next_node.next_node.nil?
             beats  = position.next_node.beat
             position.next_node = nil
