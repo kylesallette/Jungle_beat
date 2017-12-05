@@ -56,4 +56,28 @@ class JungleBeatTest < Minitest::Test
     assert_equal "doop", list.head.beat
   end
 
+  def test_can_append_and_prepend
+    list = JungleBeat.new
+
+    list.append("moop")
+    list.prepend("boop")
+
+    assert_instance_of Node, list.head
+    assert_equal "boop", list.head.beat
+    assert_equal "moop", list.head.next_node.beat
+  end
+
+  def test_insert
+    list = JungleBeat.new
+
+    list.append("boop")
+    list.append("moop")
+    list.insert(1, "ding")
+
+    assert_instance_of Node, list.head
+    assert_equal "boop", list.head.beat
+    assert_equal "ding", list.head.next_node.beat
+    assert_equal "moop", list.head.next_node.next_node.beat
+  end
+
 end

@@ -12,6 +12,14 @@ class JungleBeat
     @count = 0
   end
 
+  def prepend(beat)
+    position = @head
+    @head = Node.new(beat)
+    @head.next_node = position
+    @count += 1
+    beat
+  end
+
   def append(beat)
     position = @head
       if position.nil?
@@ -26,12 +34,26 @@ class JungleBeat
       beat
   end
 
-  def prepend(beat)
+  def to_string
     position = @head
-    @head = Node.new(beat)
-    @head.next_node = position
-    @count += 1
-    beat
+    beats = position.beat
+      until position.next_node.nil?
+         beats << " #{position.next_node.beat}"
+          position = position.next_node
+      end
+    beats
   end
-  
+
+  def insert(index, surname)
+    position = @head
+    (index - 1).times do
+      position = position.next_node
+    end
+    node = Node.new(surname)
+    node.next_node = position.next_node
+    position.next_node = node
+    @count += 1
+    surname
+  end
+
 end
