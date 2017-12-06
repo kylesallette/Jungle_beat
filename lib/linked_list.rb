@@ -12,63 +12,63 @@ class LinkedList
     @count = 0
   end
 
-  def prepend(beat)
+  def prepend(data)
     position = @head
-    @head = Node.new(beat)
+    @head = Node.new(data)
     @head.next_node = position
     @count += 1
-    beat
+    data
   end
 
-  def append(beat)
+  def append(data)
     position = @head
       if position.nil?
-        @head = Node.new(beat)
+        @head = Node.new(data)
       else
         while position.next_node != nil
           position = position.next_node
         end
-          position.next_node = Node.new(beat)
+          position.next_node = Node.new(data)
       end
       @count += 1
-      beat
+      data
   end
 
   def to_string
     position = @head
-    beats = "#{position.beat}"
+    beats = "#{position.data}"
       until position.next_node.nil?
-         beats << " #{position.next_node.beat}"
+         beats << " #{position.next_node.data}"
          position = position.next_node
       end
     beats
   end
 
-  def insert(index, beat)
+  def insert(index, data)
     position = @head
     (index - 1).times do
       position = position.next_node
     end
-      node = Node.new(beat)
+      node = Node.new(data)
       node.next_node = position.next_node
       position.next_node = node
       @count += 1
-      beat
+      data
   end
 
   def find(index, how_many)
     position = @head
     index - 1
-    beats = "#{position.beat}"
+    beats = "#{position.data}"
       index.times do
         position.next_node
         position = position.next_node
-        beats = "#{position.beat}"
+        beats = "#{position.data}"
       end
       how_many -= 1
       (how_many).times do
         position.next_node
-        beats <<  " #{position.next_node.beat}"
+        beats <<  " #{position.next_node.data}"
         position = position.next_node
       end
       beats
@@ -76,13 +76,13 @@ class LinkedList
 
   def includes?(input)
     position = @head
-      if position.beat == input
+      if position.data == input
         return true
       end
         until position.next_node == nil
           position.next_node
           position = position.next_node
-            if position.beat == input
+            if position.data == input
               return true
             end
         end
@@ -96,14 +96,14 @@ class LinkedList
         position.next_node
         position = position.next_node
           if position.next_node.nil?
-            beats = position.beat
-            position.beat = nil
+            beats = position.data
+            position.data = nil
             break
           end
             if position.next_node.next_node.nil?
-              beats  = position.next_node.beat
+              beats  = position.next_node.data
               position.next_node = nil
-            end
+          end
       end
      @count -= 1
      "The *#{beats}* beat has been removed!"

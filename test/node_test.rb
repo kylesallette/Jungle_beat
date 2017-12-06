@@ -8,7 +8,7 @@ class NodeTest < Minitest::Test
   def test_has_beat
     node = Node.new("boop")
 
-    assert_equal "boop", node.beat
+    assert_equal "boop", node.data
 
   end
 

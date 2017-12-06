@@ -10,9 +10,9 @@ class JungleBeatTest < Minitest::Test
   def test_append
     jb = JungleBeat.new
 
-    assert_equal "moop", jb.append("moop")
-    assert_equal "toot", jb.append("toot")
-    assert_equal "doop", jb.append("doop")
+    assert_equal ["moop"], jb.append("moop")
+    assert_equal ["toot"], jb.append("toot")
+    assert_equal ["doop"], jb.append("doop")
   end
 
   def test_prepend
@@ -20,9 +20,9 @@ class JungleBeatTest < Minitest::Test
 
     jb.append("John")
 
-    assert_equal "ding", jb.prepend("ding")
-    assert_equal "zing", jb.prepend("zing")
-    assert_equal "zap", jb.prepend("zap")
+    assert_equal ["ding"], jb.prepend("ding")
+    assert_equal ["zing"], jb.prepend("zing")
+    assert_equal ["zap"], jb.prepend("zap")
   end
 
   def test_insert
@@ -42,9 +42,9 @@ class JungleBeatTest < Minitest::Test
 
     expected = "zing zip ding"
 
-    assert_equal "zing", jb.append("zing")
-    assert_equal "zip", jb.append("zip")
-    assert_equal "ding", jb.append("ding")
+    assert_equal ["zing"], jb.append("zing")
+    assert_equal ["zip"], jb.append("zip")
+    assert_equal ["ding"], jb.append("ding")
 
     assert_equal expected, jb.to_string
   end

@@ -23,7 +23,7 @@ class JungleBeat
 
   def reset_voice
     @voice = "Boing"
-  end 
+  end
 
   def head
     @head
@@ -37,16 +37,22 @@ class JungleBeat
     @list.count
   end
 
-  def append(beat)
-    @list.append(beat)
+  def append(data)
+     beats = data.split(" ")
+    beats.each do |sound|
+      @list.append(sound)
+    end
   end
 
-  def prepend(beat)
-    @list.prepend(beat)
+  def prepend(data)
+    beats = data.split(" ")
+    beats.each do |sound|
+      @list.prepend(sound)
+    end
   end
 
-  def insert(index, beat)
-    @list.insert(index, beat)
+  def insert(index, data)
+    @list.insert(index, data)
   end
 
   def find(index, how_many)
@@ -61,8 +67,8 @@ class JungleBeat
     @list.pop
   end
 
-  def includes?(beat)
-    @list.includes?(beat)
+  def includes?(data)
+    @list.includes?(data)
   end
-binding.pry
+
 end

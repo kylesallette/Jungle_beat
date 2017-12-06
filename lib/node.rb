@@ -1,10 +1,10 @@
 class Node
 
-  attr_accessor :beat,
+  attr_accessor :data,
                 :next_node
 
-  def initialize(beat)
-    @beat = beat
+  def initialize(data)
+    @data = data
     @next_node = nil
   end
 

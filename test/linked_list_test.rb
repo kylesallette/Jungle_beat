@@ -19,7 +19,7 @@ class LinkedListTest < Minitest::Test
     list.append("doop")
 
     assert_instance_of Node, list.head
-    assert_equal "doop", list.head.beat
+    assert_equal "doop", list.head.data
   end
 
   def test_count_starts_at_0
@@ -48,19 +48,19 @@ class LinkedListTest < Minitest::Test
     list.append("moop")
 
     assert_instance_of Node, list.head
-    assert_equal "plop", list.head.beat
+    assert_equal "plop", list.head.data
 
     assert_instance_of Node, list.head
-    assert_equal "suu", list.head.next_node.beat
+    assert_equal "suu", list.head.next_node.data
 
     assert_instance_of Node, list.head
-    assert_equal "dop", list.head.next_node.next_node.beat
+    assert_equal "dop", list.head.next_node.next_node.data
 
     assert_instance_of Node, list.head
-    assert_equal "doop", list.head.next_node.next_node.next_node.beat
+    assert_equal "doop", list.head.next_node.next_node.next_node.data
 
     assert_instance_of Node, list.head
-    assert_equal "moop", list.head.next_node.next_node.next_node.next_node.beat
+    assert_equal "moop", list.head.next_node.next_node.next_node.next_node.data
   end
 
   def test_can_prepend_beat
@@ -69,7 +69,7 @@ class LinkedListTest < Minitest::Test
     list.prepend("doop")
 
     assert_instance_of Node, list.head
-    assert_equal "doop", list.head.beat
+    assert_equal "doop", list.head.data
   end
 
   def test_can_append_and_prepend
@@ -79,8 +79,8 @@ class LinkedListTest < Minitest::Test
     list.prepend("boop")
 
     assert_instance_of Node, list.head
-    assert_equal "boop", list.head.beat
-    assert_equal "moop", list.head.next_node.beat
+    assert_equal "boop", list.head.data
+    assert_equal "moop", list.head.next_node.data
   end
 
   def test_insert
@@ -91,9 +91,9 @@ class LinkedListTest < Minitest::Test
     list.insert(1, "ding")
 
     assert_instance_of Node, list.head
-    assert_equal "boop", list.head.beat
-    assert_equal "ding", list.head.next_node.beat
-    assert_equal "moop", list.head.next_node.next_node.beat
+    assert_equal "boop", list.head.data
+    assert_equal "ding", list.head.next_node.data
+    assert_equal "moop", list.head.next_node.next_node.data
   end
 
   def test_find
