@@ -6,6 +6,7 @@ class JungleBeat
   attr_accessor :rate,
                 :voice
 
+
   def initialize
     @list = LinkedList.new
     @rate = 500
@@ -70,5 +71,5 @@ class JungleBeat
   def includes?(data)
     @list.includes?(data)
   end
-
+binding.pry
 end
