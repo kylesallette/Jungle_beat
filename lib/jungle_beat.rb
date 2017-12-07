@@ -71,5 +71,5 @@ class JungleBeat
   def includes?(data)
     @list.includes?(data)
   end
-binding.pry
+
 end

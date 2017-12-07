@@ -92,7 +92,7 @@ class LinkedList
   def pop
     position = @head
      return "No beats to remove." if position.nil?
-      until position.next_node.nil?
+        until position.next_node.nil?
         position.next_node
         position = position.next_node
           if position.next_node.nil?
@@ -100,13 +100,13 @@ class LinkedList
             position.data = nil
             break
           end
-            if position.next_node.next_node.nil?
-              beats  = position.next_node.data
-              position.next_node = nil
+          if position.next_node.next_node.nil?
+            beats  = position.next_node.data
+            position.next_node = nil
           end
-      end
-     @count -= 1
-     "The *#{beats}* beat has been removed!"
+        end
+       @count -= 1
+       "The *#{beats}* beat has been removed!"
   end
 
 end
